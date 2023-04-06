@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/root.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components/stepper.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/components/input.css">
+    <link rel="stylesheet" href="../css/components/label.css">
+    <link rel="stylesheet" href="../css/components/button.css">
+    <link rel="stylesheet" href="../css/payment.css">
+  </head>
+  <body>
+    <div class="content-container">
+      <div class="stepper-container">
+        <div class="stepper__line"></div>
+        <div class="stepper__step">
+          <div class="step__circle">
+            <svg class="step__icon" aria-labelledby="personalData" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path 
+                d="M20 21C20 18.2386 16.4183 16 12 16C7.58172 16 4 18.2386 4 21M12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8C17 10.7614 14.7614 13 12 13Z" 
+                stroke-linecap="round" stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <span id="personalData" class="step__title">Dados pessoais</span>
+        </div>
+        <div class="stepper__step">
+          <div class="step__circle">
+            <svg class="step__icon" aria-labelledby="address" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M20 11C20 13.2685 18.8565 15.3225 17.4341 17C15.9045 18.8039 14.0525 20.1724 12.9533 20.9039C12.3717 21.2908 11.6283 21.2908 11.0467 20.9039C9.94752 20.1724 8.09548 18.8039 6.56591 17C5.14353 15.3225 4 13.2685 4 11C4 6.58172 7.58172 3 12 3C16.4183 3 20 6.58172 20 11Z"
+                />
+                <path 
+                  d="M15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11Z" 
+                />
+            </svg>
+          </div>
+          <span id="address" class="step__title">Endereço</span>
+        </div>
+        <div class="stepper__step">
+          <div class="step__circle">
+            <svg class="step__icon" aria-labelledby="paymentMethod" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path 
+                d="M3 11V15.8002C3 16.9203 3 17.4801 3.21799 17.9079C3.40973 18.2842 3.71547 18.5905 4.0918 18.7822C4.5192 19 5.07899 19 6.19691 19H17.8031C18.921 19 19.48 19 19.9074 18.7822C20.2837 18.5905 20.5905 18.2842 20.7822 17.9079C21 17.4805 21 16.9215 21 15.8036V11M3 11V9M3 11H21M3 9V8.2002C3 7.08009 3 6.51962 3.21799 6.0918C3.40973 5.71547 3.71547 5.40973 4.0918 5.21799C4.51962 5 5.08009 5 6.2002 5H17.8002C18.9203 5 19.4796 5 19.9074 5.21799C20.2837 5.40973 20.5905 5.71547 20.7822 6.0918C21 6.5192 21 7.07899 21 8.19691V9M3 9H21M7 15H11M21 11V9" 
+                stroke-linecap="round" stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <span id="paymentMethod" class="step__title">Forma de pagamento</span>
+        </div>
+      </div>
+
+      <div class="payment-form-container">
+        <form class="form payment">
+          <!-- 3 - numero do cartao, titular, validade, cvv e cpf/cnpj do titular -->
+          <div class="input-container">
+            <input 
+              name="cardNumber" 
+              id="card-number" 
+              class="input" 
+              type="text" 
+              placeholder="Número do cartão" 
+              aria-labelledby="card-number-label" 
+              aria-describedby="card-number-error" 
+              required
+            >
+            <label id="card-number-label" class="input__label" for="card-number">
+              Número do cartão
+            </label>
+            <span id="card-number-error" class="input__error-message"></span>
+          </div>
+          <div class="input-container">
+            <input 
+              name="cardHolder" 
+              id="card-holder" 
+              class="input" 
+              type="text" 
+              placeholder="Titular do cartão" 
+              aria-labelledby="card-holder-label" 
+              aria-describedby="card-holder-error" 
+              required
+            >
+            <label id="card-holder-label" class="input__label" for="cardHolder">
+              Titular do cartão
+            </label>
+            <span id="card-holder-error" class="input__error-message"></span>
+          </div>
+          <div class="validity-cvv-container">
+            <div class="input-container">
+              <input 
+                name="validity" 
+                id="validity" 
+                class="input" 
+                type="text" 
+                placeholder="Validade" 
+                aria-labelledby="validity-label" 
+                aria-describedby="validity-error" 
+                required
+              >
+              <label id="validity-label" class="input__label" for="validity">
+                Validade
+              </label>
+              <span id="validity-error" class="input__error-message"></span>
+            </div>
+            <div class="input-container">
+              <input 
+                name="cvv" 
+                id="cvv" 
+                class="input" 
+                type="text" 
+                placeholder="CVV" 
+                aria-labelledby="cvv-label" 
+                aria-describedby="cvv-error" 
+                required
+              >
+              <label id="cvv-label" class="input__label" for="cvv">
+                CVV
+              </label>
+              <span id="cvv-error" class="input__error-message"></span>
+            </div>
+          </div>
+          <div class="input-container">
+            <input 
+              name="cardHolderCpfOrCnpj" 
+              id="card-holder-cpf-cnpj" 
+              class="input" 
+              type="text" 
+              placeholder="CPF/CNPJ do Titular" 
+              aria-labelledby="card-holder-cpf-cnpj-label" 
+              aria-describedby="card-holder-cpf-cnpj-error" 
+              required
+            >
+            <label id="card-holder-cpf-cnpj-label" class="input__label" for="card-holder-cpf-cnpj">
+              CPF/CNPJ do Titular
+            </label>
+            <span id="card-holder-cpf-cnpj-error" class="input__error-message"></span>
+          </div>
+          
+          <div class="btn-container">
+            <button class="form__btn payment__btn secondary">
+              Voltar
+            </button>
+            <button class="form__btn payment__btn">
+              Finalizar
+            </button>
+          </div>
+        </form>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card__front">
+              <div class="card__top">
+                <span class="card__info card__flag">Mastercard</span>
+                <img src="../assets/icons/mastercard.svg" alt="Mastercard" class="card__flag-img">
+              </div>
+              <div class="card__mid">
+                <span class="card__info card__number">3456 7643 5667 8900</span>
+              </div>
+              <div class="card__bottom">
+                <span class="card__info card__name">Ana Beatriz Oliveira da Silva</span>
+                <span class="card__info card__validity">04/32</span>
+              </div>
+            </div>
+            <div class="card__back">
+              <div class="black-bar"></div>
+              <div class="cvv-container">
+                <span class="card__info card__cvv">442</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <img src="./assets/images/self-care.svg" alt="desenho de uma mulher se cuidando" class="self-care-img">
+    <img src="./assets/images/happy-woman.svg" alt="desenho de uma mulher feliz" class="woman-img"> -->
+  </body>
+</html>

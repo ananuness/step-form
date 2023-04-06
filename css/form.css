@@ -1,0 +1,57 @@
+.form {
+  max-width: 400px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox, .checkbox__label {
+  cursor: pointer;
+}
+
+.input:not(:placeholder-shown) + .input__label, 
+.input:focus + .input__label {
+  top: -.5rem;
+  font-weight: 500;
+  transition: all .25s;
+  background-color: var(--gray-50);
+}
+
+.input:not(:placeholder-shown) + .input__label {
+  color: var(--gray-500);
+}
+
+.input:focus + .input__label {
+  color: var(--purple-500);
+}
+
+/*
+  quando o checkbox de sem numero for marcado
+  deve-se colocar a classe inactive no input de numero
+  e colocar o atributo readonly   
+*/
+.input.inactive,
+.input.inactive + .input__label,
+.input.inactive:focus + .input__label {
+  color: var(--gray-400);
+}
+
+.input__error-message {
+  display: none;
+  margin-top: 4px;
+  margin-left: 1px;
+  font-size: .75rem;
+}
+
+.input-container.invalid .input__error-message {
+  display: inline;
+}
+
+.input-container.invalid .input__error-message,
+.input-container.invalid  .input__label {
+  color: var(--red-400);
+}
+
+.input-container.invalid .input {
+  border: 1px solid var(--red-400);
+}

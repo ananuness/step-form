@@ -1,0 +1,118 @@
+.payment-form-container {
+  display: flex;
+  gap: 56px;
+}
+
+.validity-cvv-container {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.payment .btn-container {
+  width: 100%;
+}
+
+.payment__btn {
+  flex-grow: 1;
+}
+
+.card {
+  width: 335px;
+  height: 208px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* futuramente esse estilo sera aplicado apenas quando o input de CVV estiver focado */
+.card:hover .card-inner {
+  transform: rotateY(-180deg);
+}
+
+.card-inner {
+  height: 100%;
+  position: relative;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card__front, .card__back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  user-select: none;
+  box-shadow: 0px 2px 12px 0px rgba(23, 23, 23, .2);
+  overflow: hidden;
+  backface-visibility: hidden;
+  color: var(--gray-500);
+  background-color: var(--gray-200);
+}
+
+.card__front {
+  padding: 1.25rem;
+}
+
+.card__top, .card__bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: .75rem;
+}
+
+.card__top {
+  align-items: flex-start;
+}
+
+.card__info {
+  width: fit-content;
+}
+
+.card__flag-img {
+  width: 32px;
+  position: relative;
+  top: -8px;
+}
+
+.card__mid {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.card__bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.card__bottom .card__info:first-child {
+  flex-grow: 1;
+}
+
+.card__back {
+  transform: rotateY(180deg);
+}
+
+.black-bar {
+  width: 100%;
+  height: 48px;
+  margin: 1.5rem 0;
+  background-color: var(--gray-900);
+}
+
+.cvv-container {
+  width: 60%;
+  align-self: center;
+  padding: .5rem .75rem;
+  border-radius: .5rem;
+  text-align: end;
+  background-color: var(--white);
+}
+
+.card__cvv {
+  padding-left: .75rem;
+  border-left: 2px solid var(--gray-200);
+}
