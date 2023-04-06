@@ -1,0 +1,12 @@
+{
+  "name": "form",
+  "version": "1.0.0",
+  "description": "An abstraction of a form commonly used on ecommerce sites, involving the steps of personal data, address and payment method",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ana Beatriz Nunes",
+  "license": "ISC"
+}
