@@ -23,14 +23,14 @@
         <div class="stepper__line"></div>
         <div class="stepper__step">
           <div class="step__circle">
-            <svg class="step__icon" aria-labelledby="personalData" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="step__icon" aria-labelledby="personal-data" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path 
                 d="M20 21C20 18.2386 16.4183 16 12 16C7.58172 16 4 18.2386 4 21M12 13C9.23858 13 7 10.7614 7 8C7 5.23858 9.23858 3 12 3C14.7614 3 17 5.23858 17 8C17 10.7614 14.7614 13 12 13Z" 
                 stroke-linecap="round" stroke-linejoin="round"
               />
             </svg>
           </div>
-          <span id="personalData" class="step__title">Dados pessoais</span>
+          <span id="personal-data" class="step__title">Dados pessoais</span>
         </div>
         <div class="stepper__step">
           <div class="step__circle">
@@ -47,14 +47,14 @@
         </div>
         <div class="stepper__step">
           <div class="step__circle">
-            <svg class="step__icon" aria-labelledby="paymentMethod" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="step__icon" aria-labelledby="payment-method" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path 
                 d="M3 11V15.8002C3 16.9203 3 17.4801 3.21799 17.9079C3.40973 18.2842 3.71547 18.5905 4.0918 18.7822C4.5192 19 5.07899 19 6.19691 19H17.8031C18.921 19 19.48 19 19.9074 18.7822C20.2837 18.5905 20.5905 18.2842 20.7822 17.9079C21 17.4805 21 16.9215 21 15.8036V11M3 11V9M3 11H21M3 9V8.2002C3 7.08009 3 6.51962 3.21799 6.0918C3.40973 5.71547 3.71547 5.40973 4.0918 5.21799C4.51962 5 5.08009 5 6.2002 5H17.8002C18.9203 5 19.4796 5 19.9074 5.21799C20.2837 5.40973 20.5905 5.71547 20.7822 6.0918C21 6.5192 21 7.07899 21 8.19691V9M3 9H21M7 15H11M21 11V9" 
                 stroke-linecap="round" stroke-linejoin="round"
               />
             </svg>
           </div>
-          <span id="paymentMethod" class="step__title">Forma de pagamento</span>
+          <span id="payment-method" class="step__title">Forma de pagamento</span>
         </div>
       </div>
 
@@ -154,25 +154,25 @@
           </div>
         </form>
 
-        <div class="card">
+        <div class="card" aria-label="cartão">
           <div class="card-inner">
             <div class="card__front">
               <div class="card__top">
-                <span class="card__info card__flag">Mastercard</span>
+                <span class="card__info card__flag" aria-label="bandeira do cartão">Mastercard</span>
                 <img src="../assets/icons/mastercard.svg" alt="Mastercard" class="card__flag-img">
               </div>
               <div class="card__mid">
-                <span class="card__info card__number">3456 7643 5667 8900</span>
+                <span class="card__info card__number" aria-label="número do cartão">3456 7643 5667 8900</span>
               </div>
               <div class="card__bottom">
-                <span class="card__info card__name">Ana Beatriz Oliveira da Silva</span>
-                <span class="card__info card__validity">04/32</span>
+                <span class="card__info card__name" aria-label="nome do titular">Ana Beatriz Oliveira da Silva</span>
+                <span class="card__info card__validity" aria-label="validade">04/32</span>
               </div>
             </div>
             <div class="card__back">
               <div class="black-bar"></div>
               <div class="cvv-container">
-                <span class="card__info card__cvv">442</span>
+                <span class="card__info card__cvv" aria-label="CVV">442</span>
               </div>
             </div>
           </div>
