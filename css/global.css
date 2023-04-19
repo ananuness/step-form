@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  color: var(--white);
+  background-color: rgba(146, 34, 220, .8);
+}
+
 body {
   min-height: 100vh;
   display: flex;

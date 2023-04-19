@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin-bottom: 88px;
   cursor: default;
+  user-select: none;
 }
 
 .stepper-container::before {
