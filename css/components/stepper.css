@@ -14,20 +14,18 @@
   position: absolute;
   top: 50%;
   left: 0;
-  /* z-index: -1; */
-  /* transform: translateY(-50%); */
+  transform: translateY(-50%);
   background-color: var(--gray-300);
 }
 
 .stepper__line {
   width: 0%;
-  height: 4px;
+  height: 2px;
   position: absolute;
   top: 50%;
   left: 0;
-  z-index: -1;
-  /* transform: translateY(-50%); */
-  transition: 0.4s ease;
+  transform: translateY(-50%);
+  transition: .4s ease;
   background-color: var(--purple-500);
 }
 
