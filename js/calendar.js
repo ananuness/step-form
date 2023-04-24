@@ -38,6 +38,8 @@ const createElementFromString = (tag, attributes, content) => {
 	return element;
 }
 
+const hideCalendar = () => calendarWrapper.classList.add('inactive');
+
 const selectedDate = (event, liArray) => {
 	const currLiActive = liArray.filter(li => li.classList.contains('active'));
 	if (currLiActive.length) {
@@ -53,7 +55,7 @@ const selectedDate = (event, liArray) => {
 	}
 
 	event.target.classList.toggle('active');
-	calendarWrapper.classList.add('inactive');
+	hideCalendar();
 	birthDateInput.value = event.target.getAttribute('data-date');
 }
 
@@ -141,3 +143,5 @@ prevNextIcon.forEach(icon =>
 calendarBtn.addEventListener('click', () => {
 	calendarWrapper.classList.toggle('inactive');
 });
+
+calendarWrapper.addEventListener('mouseleave', hideCalendar)
