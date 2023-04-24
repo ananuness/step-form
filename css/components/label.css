@@ -22,4 +22,5 @@
   font-size: .875rem;
   transition: all .25s;
   color: var(--gray-400);
+  cursor: text;
 }

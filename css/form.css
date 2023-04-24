@@ -15,6 +15,7 @@
   font-weight: 500;
   transition: all .25s;
   background-color: var(--gray-50);
+  cursor: default;
 }
 
 .input:not(:placeholder-shown) + .input__label {
@@ -37,17 +38,13 @@
 }
 
 .input__error-message {
-  display: none;
   margin-top: 4px;
   margin-left: 1px;
+  user-select: none;
   font-size: .75rem;
+  color: var(--red-400);
 }
 
-.input-container.invalid .input__error-message {
-  display: inline;
-}
-
-.input-container.invalid .input__error-message,
 .input-container.invalid  .input__label {
   color: var(--red-400);
 }
