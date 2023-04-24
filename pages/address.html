@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Form</title>
+    <title>Step Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/global.css">
@@ -58,70 +58,56 @@
       </div>
 
       <form class="form address">
-        <!-- 2 - cep, cidade, estado, rua, numero (opcao sem numero), complemento e ponto de referencia -->
+        <!-- 2 - cep (max 9), cidade/estado, endereco (max 50), 
+          numero (max 6) (opcao sem numero), bairro (max 50), 
+          complemento (max 30) e ponto de referencia (max 50)
+        -->
         <div class="input-container">
           <input 
-            name="cep" 
-            id="cep" 
+            name="zipCode" 
+            id="zip-code" 
             class="input" 
             type="text" 
             placeholder="CEP" 
-            aria-labelledby="cep-label" 
-            aria-describedby="cep-error" 
-            required
+            aria-labelledby="zip-code-label" 
+            aria-describedby="zip-code-error" 
+            maxlength="9"
           >
-          <label id="cep-label" class="input__label" for="cep">
+          <label id="zip-code-label" class="input__label" for="zip-code">
             CEP
           </label>
-          <span id="cep-error" class="input__error-message"></span>
+          <span id="zip-code-error" class="input__error-message"></span>
         </div>
         <div class="input-container">
           <input 
-            name="city" 
-            id="city" 
+            name="cityUF" 
+            id="city-uf" 
             class="input" 
             type="text" 
-            placeholder="Cidade" 
-            aria-labelledby="city-label" 
-            aria-describedby="city-error" 
-            required
+            placeholder="Cidade/Estado" 
+            aria-labelledby="city-uf-label" 
+            aria-describedby="city-uf-error" 
           >
-          <label id="city-label" class="input__label" for="city">
-            Cidade
+          <label id="city-uf-label" class="input__label" for="city-uf">
+            Cidade/Estado
           </label>
-          <span id="city-error" class="input__error-message"></span>
+          <span id="city-uf-error" class="input__error-message"></span>
         </div>
         <div class="input-container">
           <input 
-            name="state" 
-            id="state" 
+            name="streetAddress" 
+            id="street-address" 
             class="input" 
             type="text" 
-            placeholder="Estado" 
-            aria-labelledby="state-label" 
-            aria-describedby="state-error" 
-            required
+            placeholder="Endereço" 
+            aria-labelledby="street-address-label" 
+            aria-describedby="street-address-error" 
+            maxlength="50"
           >
-          <label id="state-label" class="input__label" for="state">
-            Estado
+          <label id="street-address-label" class="input__label" for="street-address">
+            Endereço
           </label>
-          <span id="state-error" class="input__error-message"></span>
-        </div>
-        <div class="input-container">
-          <input 
-            name="street" 
-            id="street" 
-            class="input" 
-            type="text" 
-            placeholder="Rua" 
-            aria-labelledby="street-label" 
-            aria-describedby="street-error" 
-            required
-          >
-          <label id="street-label" class="input__label" for="street">
-            Rua
-          </label>
-          <span id="street-error" class="input__error-message"></span>
+          <span id="street-address-error" class="input__error-message"></span>
         </div>
         <div class="input-container number-field">
           <input 
@@ -131,8 +117,8 @@
             type="text" 
             placeholder="Número" 
             aria-labelledby="house-number-label" 
-            aria-describedby="house-number-error" 
-            required
+            aria-describedby="house-number-error"
+            maxlength="6"
           >
           <label id="house-number-label" class="input__label" for="house-number">
             Número
@@ -152,14 +138,30 @@
         </div>
         <div class="input-container">
           <input 
+            name="district" 
+            id="district" 
+            class="input" 
+            type="text" 
+            placeholder="Bairro" 
+            aria-labelledby="district-label" 
+            aria-describedby="district-error" 
+            maxlength="50"
+          >
+          <label id="district-label" class="input__label" for="district">
+            Bairro
+          </label>
+          <span id="district-error" class="input__error-message"></span>
+        </div>
+        <div class="input-container">
+          <input 
             name="complement" 
             id="complement" 
             class="input" 
             type="text" 
             placeholder="Complemento" 
             aria-labelledby="complement-label" 
-            aria-describedby="complement-error" 
-            required
+            aria-describedby="complement-error"
+            maxlength="30" 
           >
           <label id="complement-label" class="input__label" for="complement">
             Complemento
@@ -168,19 +170,19 @@
         </div>
         <div class="input-container">
           <input 
-            name="landmark" 
-            id="landmark" 
+            name="referencePoint" 
+            id="reference-point" 
             class="input" 
             type="text"  
             placeholder="Ponto de referência" 
-            aria-labelledby="landmark-label" 
-            aria-describedby="landmark-error" 
-            required
+            aria-labelledby="reference-point-label" 
+            aria-describedby="reference-point-error" 
+            maxlength="50"
           >
-          <label id="landmark-label" class="input__label" for="landmark">
+          <label id="reference-point-label" class="input__label" for="reference-point">
             Ponto de referência
           </label>
-          <span id="landmark-error" class="input__error-message"></span>
+          <span id="reference-point-error" class="input__error-message"></span>
         </div>
         
         <div class="btn-container">
