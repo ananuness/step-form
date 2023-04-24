@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Form</title>
+    <title>Step Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/root.css">
     <link rel="stylesheet" href="../css/global.css">
@@ -60,7 +60,10 @@
 
       <div class="payment-form-container">
         <form class="form payment">
-          <!-- 3 - numero do cartao, titular, validade, cvv e cpf/cnpj do titular -->
+          <!-- 3 - numero do cartao (max 23), titular (max 26), 
+            validade, cvv (max 4) 
+            e cpf/cnpj do titular (min 14, max 18) 
+          -->
           <div class="input-container">
             <input 
               name="cardNumber" 
@@ -70,7 +73,7 @@
               placeholder="Número do cartão" 
               aria-labelledby="card-number-label" 
               aria-describedby="card-number-error" 
-              required
+              maxlength="23"
             >
             <label id="card-number-label" class="input__label" for="card-number">
               Número do cartão
@@ -83,17 +86,17 @@
               id="card-holder" 
               class="input" 
               type="text" 
-              placeholder="Titular do cartão" 
+              placeholder="Nome impresso no cartão" 
               aria-labelledby="card-holder-label" 
               aria-describedby="card-holder-error" 
-              required
+              maxlength="26"
             >
-            <label id="card-holder-label" class="input__label" for="cardHolder">
-              Titular do cartão
+            <label id="card-holder-label" class="input__label" for="card-holder">
+              Nome impresso no cartão
             </label>
             <span id="card-holder-error" class="input__error-message"></span>
           </div>
-          <div class="validity-cvv-container">
+          <div class="validity-cvc-container">
             <div class="input-container">
               <input 
                 name="validity" 
@@ -103,7 +106,6 @@
                 placeholder="Validade" 
                 aria-labelledby="validity-label" 
                 aria-describedby="validity-error" 
-                required
               >
               <label id="validity-label" class="input__label" for="validity">
                 Validade
@@ -112,19 +114,19 @@
             </div>
             <div class="input-container">
               <input 
-                name="cvv" 
-                id="cvv" 
+                name="cvc" 
+                id="cvc" 
                 class="input" 
                 type="text" 
-                placeholder="CVV" 
-                aria-labelledby="cvv-label" 
-                aria-describedby="cvv-error" 
-                required
+                placeholder="Código de segurança" 
+                aria-labelledby="cvc-label" 
+                aria-describedby="cvc-error" 
+                maxlength="4"
               >
-              <label id="cvv-label" class="input__label" for="cvv">
-                CVV
+              <label id="cvc-label" class="input__label" for="cvc">
+                Código de segurança
               </label>
-              <span id="cvv-error" class="input__error-message"></span>
+              <span id="cvc-error" class="input__error-message"></span>
             </div>
           </div>
           <div class="input-container">
@@ -136,7 +138,8 @@
               placeholder="CPF/CNPJ do Titular" 
               aria-labelledby="card-holder-cpf-cnpj-label" 
               aria-describedby="card-holder-cpf-cnpj-error" 
-              required
+              minlength="14"
+              maxlength="18"
             >
             <label id="card-holder-cpf-cnpj-label" class="input__label" for="card-holder-cpf-cnpj">
               CPF/CNPJ do Titular
@@ -171,8 +174,8 @@
             </div>
             <div class="card__back">
               <div class="black-bar"></div>
-              <div class="cvv-container">
-                <span class="card__info card__cvv" aria-label="CVV">442</span>
+              <div class="cvc-container">
+                <span class="card__info card__cvc" aria-label="código de validação/segurança do cartão (CVC ou CVV)">442</span>
               </div>
             </div>
           </div>

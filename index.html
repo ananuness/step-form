@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Form</title>
+    <title>Step Form</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/root.css">
     <link rel="stylesheet" href="./css/global.css">
@@ -59,7 +59,9 @@
       </div>
 
       <form class="form personal-data">
-        <!-- 1 - nome, email, telefone, data de nascimento e cpf -->
+        <!-- 1 - nome (max 100), email, telefone (max 15), 
+          data de nascimento e cpf (max 14) 
+        -->
         <div class="input-container">
           <input 
             name="name" 
@@ -69,6 +71,7 @@
             placeholder="Nome" 
             aria-labelledby="name-label" 
             aria-describedby="name-error"
+            maxlength="100"
           >
           <label id="name-label" class="input__label" for="name">
             Nome
@@ -96,12 +99,14 @@
             id="phone" 
             class="input" 
             type="tel" 
-            placeholder="Telefone"
+            placeholder="Número de celular"
             aria-labelledby="phone-label" 
             aria-describedby="phone-error"  
+            maxlength="15" 
           >
+          <!-- maxLength de 15, pois: (99) 99999-9999 -->
           <label id="phone-label" class="input__label" for="phone">
-            Telefone
+            Número de celular
           </label>
           <span id="phone-error" class="input__error-message"></span>
         </div>
@@ -154,6 +159,7 @@
             placeholder="CPF" 
             aria-labelledby="cpf-label" 
             aria-describedby="cpf-error" 
+            maxlength="14"
           >
           <label id="cpf-label" class="input__label" for="cpf">
             CPF
