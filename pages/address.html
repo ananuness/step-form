@@ -109,32 +109,35 @@
           </label>
           <span id="street-address-error" class="input__error-message"></span>
         </div>
-        <div class="input-container number-field">
-          <input 
-            name="houseNumber" 
-            id="house-number" 
-            class="input" 
-            type="text" 
-            placeholder="Número" 
-            aria-labelledby="house-number-label" 
-            aria-describedby="house-number-error"
-            maxlength="6"
-          >
-          <label id="house-number-label" class="input__label" for="house-number">
-            Número
-          </label>
-          <span id="house-number-error" class="input__error-message"></span>
-
-          <label id="no-house-number-label" class="checkbox__label" for="no-house-number">
+        <div class="input-container">
+          <div class="number-field">
             <input 
-              name="noHouseNumber" 
-              id="no-house-number" 
-              class="checkbox" 
-              type="checkbox"
-              aria-labelledby="no-house-number-label" 
+              name="houseNumber" 
+              id="house-number" 
+              class="input" 
+              type="text" 
+              placeholder="Número" 
+              aria-labelledby="house-number-label" 
+              aria-describedby="house-number-error"
+              maxlength="6"
             >
-            Sem número
-          </label>
+            <label id="house-number-label" class="input__label" for="house-number">
+              Número
+            </label>
+
+            <label id="no-house-number-label" class="checkbox__label" for="no-house-number">
+              <input 
+                name="noHouseNumber" 
+                id="no-house-number" 
+                class="checkbox" 
+                type="checkbox"
+                aria-labelledby="no-house-number-label" 
+              >
+              Sem número
+            </label>
+          </div>
+
+          <span id="house-number-error" class="input__error-message">opa</span>
         </div>
         <div class="input-container">
           <input 
@@ -199,8 +202,8 @@
     <!-- <img src="./images/assets/self-care.svg" alt="desenho de uma mulher se cuidando" class="self-care-img">
     <img src="./assets/images/happy-woman.svg" alt="desenho de uma mulher feliz" class="woman-img"> -->
 
-    <script type="module" src="../js/stepper.js"></script>
-    <script type="module" src="../js/form.js"></script>
-    <script type="module" src="../js/validations/address.js"></script>
+    <script type="module" src="../js/components/stepper.js"></script>
+    <script type="module" src="../js/components/form.js"></script>
+    <script type="module" src="../js/pages/address.js"></script>
   </body>
 </html>

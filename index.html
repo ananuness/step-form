@@ -21,7 +21,7 @@
     <div class="content-container">
       <div class="stepper-container">
         <div class="stepper__line"></div>
-        <div class="stepper__step active">
+        <div class="stepper__step">
           <div class="step__circle">
             <svg class="step__icon" aria-labelledby="personal-data" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path 
@@ -123,7 +123,6 @@
           <label id="birth-label" class="input__label" for="birth-date">
             Data de Nascimento
           </label>
-          <span id="birth-error" class="input__error-message"></span>
 
           <img src="./assets/icons/calendar.svg" alt="ícone de calendário" class="calendar-icon">
 
@@ -149,6 +148,8 @@
               <ul class="days"></ul>
             </div>
           </div>
+          
+          <span id="birth-error" class="input__error-message"></span>
         </div>
         <div class="input-container">
           <input 
@@ -177,9 +178,10 @@
 
     <!-- <img src="./assets/images/self-care.svg" alt="desenho de uma mulher se cuidando" class="self-care-img">
     <img src="./assets/images/happy-woman.svg" alt="desenho de uma mulher feliz" class="woman-img"> -->
-    <script type="module" src="./js/calendar.js"></script>
-    <script type="module" src="./js/stepper.js"></script>
-    <script type="module" src="./js/form.js"></script>
-    <script type="module" src="./js/validations/personal-data.js"></script>
+    
+    <script type="module" src="./js/components/stepper.js"></script>
+    <script type="module" src="./js/components/calendar.js"></script>
+    <script type="module" src="./js/components/form.js"></script>
+    <script type="module" src="./js/pages/personal-data.js"></script>
   </body>
 </html>
