@@ -21,7 +21,10 @@ const requiredFieldFilled = (event, errorElement) => {
 
 const allRequiredFieldsFilled = (event, errorMessages) => {
   for (const input of event.target) {
-    if (!input.classList.contains('form__btn') && !input.value) {
+    if (
+      input.classList.contains('input') 
+      && input.required && !input.value
+    ) {
       inputValidation.addInputError(
         input, 
         input.parentElement.lastElementChild, 
@@ -160,6 +163,23 @@ const CPF = (event, errorElement) => {
   removeInputError(event.target, errorElement);
 }
 
+const zipCode = (event, errorElement) => {
+  if (!requiredFieldFilled(event, errorElement)) {
+    return;
+  }
+
+  if (event.target.value.length !== 9) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      'CEP inválido. Tente o formato 00000-000'
+    );
+    return;
+  }
+
+  removeInputError(event.target, errorElement);
+}
+
 export const inputValidation = {
   addInputError,
   removeInputError,
@@ -168,5 +188,6 @@ export const inputValidation = {
   email,
   phone,
   date,
-  CPF
+  CPF,
+  zipCode
 }
