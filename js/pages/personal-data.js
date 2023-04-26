@@ -1,4 +1,4 @@
-import { storageData } from '../components/form.js';
+import { getData, redirect, storageObject } from '../components/form.js';
 import { updateStep } from '../components/stepper.js';
 import { inputMask } from '../validations/input-mask.js';
 import { inputValidation } from '../validations/inputs.js';
@@ -26,39 +26,35 @@ inputMask.addMask(phoneInput, inputMask.phone);
 inputMask.addMask(birthDateInput, inputMask.date);
 inputMask.addMask(CPFInput, inputMask.CPF);
 
-// input validations here
-
-nameInput.addEventListener(
-  'change', (event) => inputValidation.requiredFieldFilled(event, nameError)
+nameInput.addEventListener('change', (event) => 
+  inputValidation.requiredFieldFilled(event, nameError)
 );
 
-emailInput.addEventListener(
-  'change', (event) => inputValidation.email(event, emailError)
+emailInput.addEventListener('change', (event) => 
+  inputValidation.email(event, emailError)
 );
 
-phoneInput.addEventListener('change', (event) => {
-  inputValidation.phone(event, phoneError);
-});
-
-birthDateInput.addEventListener(
-  'change', (event) => inputValidation.requiredField(event, birthDateError)
+phoneInput.addEventListener('change', (event) =>
+  inputValidation.phone(event, phoneError)
 );
 
-CPFInput.addEventListener(
-  'change', (event) => inputValidation.requiredField(event, CPFError)
+birthDateInput.addEventListener('change', (event) => 
+  inputValidation.date(event, birthDateError)
+);
+
+CPFInput.addEventListener('change', (event) => 
+  inputValidation.CPF(event, CPFError)
 );
 
 personalDataForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
+  //console.log('passei aqui')
+
   if (!inputValidation.allRequiredFieldsFilled(event, errorMessages)) {
     return;
   }
 
-  storageData(event);
-  
-  console.log(localStorage);
-  return;
-
-  // redirect('./pages/address.html');
+  storageObject('personalData', getData(event));
+  redirect('./pages/address.html');
 });
