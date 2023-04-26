@@ -26,30 +26,28 @@ inputMask.addMask(phoneInput, inputMask.phone);
 inputMask.addMask(birthDateInput, inputMask.date);
 inputMask.addMask(CPFInput, inputMask.CPF);
 
-nameInput.addEventListener('change', (event) => 
+nameInput.addEventListener('change', event => 
   inputValidation.requiredFieldFilled(event, nameError)
 );
 
-emailInput.addEventListener('change', (event) => 
+emailInput.addEventListener('change', event => 
   inputValidation.email(event, emailError)
 );
 
-phoneInput.addEventListener('change', (event) =>
+phoneInput.addEventListener('change', event =>
   inputValidation.phone(event, phoneError)
 );
 
-birthDateInput.addEventListener('change', (event) => 
+birthDateInput.addEventListener('change', event => 
   inputValidation.date(event, birthDateError)
 );
 
-CPFInput.addEventListener('change', (event) => 
+CPFInput.addEventListener('change', event => 
   inputValidation.CPF(event, CPFError)
 );
 
-personalDataForm.addEventListener('submit', (event) => {
+personalDataForm.addEventListener('submit', event => {
   event.preventDefault();
-
-  //console.log('passei aqui')
 
   if (!inputValidation.allRequiredFieldsFilled(event, errorMessages)) {
     return;
