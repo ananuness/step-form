@@ -1,5 +1,5 @@
-import { getData, redirect } from '../form.js';
-import { updateStep } from '../stepper.js';
+import { getData, redirect } from '../components/form.js';
+import { updateStep } from '../components/stepper.js';
 
 const addressForm = document.querySelector('.address');
 const zipCodeInput = document.getElementById('zip-code');
