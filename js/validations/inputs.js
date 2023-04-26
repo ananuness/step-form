@@ -10,7 +10,7 @@ const removeInputError = (input, errorElement) => {
 
 const requiredFieldFilled = (event, errorElement) => {
   if (!event.target.value) {
-    addInputError(event.target, errorElement, 'Campo obrigatório');
+    addInputError(event.target, errorElement, 'Campo obrigatório.');
     return false;
   }
   else {
@@ -25,7 +25,7 @@ const allRequiredFieldsFilled = (event, errorMessages) => {
       inputValidation.addInputError(
         input, 
         input.parentElement.lastElementChild, 
-        'Campo obrigatório'
+        'Campo obrigatório.'
       );
     }
   }
@@ -39,47 +39,111 @@ const allRequiredFieldsFilled = (event, errorMessages) => {
     }
   }
 
-  if (hasError) {
-    return false;
-  }
-  else {
-    return true;
-  }
+  if (hasError) return false;
+  else return true;
 }
 
-const email = (event, errorElement) => {
-  const email = event.target;
+const email = (event, errorElement) => { 
+  const emailInput = event.target;
 
-  if (!email.value) {
-    addInputError(email, errorElement, 'Campo obrigatório');
+  if (!emailInput.value) {
+    addInputError(emailInput, errorElement, 'Campo obrigatório.');
     return;
   }
 
-  const emailAt = email.value.split('@');
+  const emailAt = emailInput.value.split('@');
 
   if (emailAt.length !== 2) {
-    addInputError(email, errorElement, 'E-mail deve conter um @');
+    addInputError(emailInput, errorElement, 'E-mail deve conter um @');
     return;
   }
 
   const emailValidation = {
-    withoutDot: !email.value.includes('.'),
-    startsWithDot: email.value.startsWith('.'),
-    endsWithDot: email.value.endsWith('.'),
+    withoutDot: !emailInput.value.includes('.'),
+    startsWithDot: emailInput.value.startsWith('.'),
+    endsWithDot: emailInput.value.endsWith('.'),
+    withDotsTogether: emailInput.value.split('.').includes(''),
     startsWithAt: !emailAt[0],
     endsWithAt: !emailAt[1],
-    dotAtTogether: email.value.includes('.@') || email.value.includes('@.')
+    dotAtTogether: emailInput.value.includes('.@') || emailInput.value.includes('@.')
   }
 
   if (Object.values(emailValidation).includes(true)) {
-    addInputError(email, errorElement, 'Formato inválido. Tente algo como exemplo@email.com')
+    addInputError(
+      emailInput, 
+      errorElement, 
+      'E-mail inválido. Tente o formato exemplo@email.com'
+    );
     return;
   }
 
-  removeInputError(email, errorElement);
+  removeInputError(emailInput, errorElement);
 }
 
 const phone = (event, errorElement) => {
+  if (!requiredFieldFilled(event, errorElement)) return;
+
+  if (event.target.value.length !== 15) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      'Número inválido. Tente o formato (00)90000-0000'
+    );
+    return;
+  }
+
+  removeInputError(event.target, errorElement);
+}
+
+const date = (event, errorElement) => {
+  const dateInput = event.target;
+
+  if (!requiredFieldFilled(event, errorElement)) { 
+    return;
+  }
+
+  if (dateInput.value.length !== 10) { 
+    addInputError(
+      dateInput, 
+      errorElement, 
+      'Data inválida. Tente o formato dd/mm/aaaa'
+    );
+    return;
+  }
+
+  const dateValues = dateInput.value.split('/');  
+  const validDay = dateValues[0].match(/0[1-9]|[12][0-9]|3[01]/);
+  const validMonth = dateValues[1].match(/0[1-9]|1[012]/);
+  const validYear = dateValues[2].match(/19\d\d|20\d\d/);
+
+  if (!validDay || !validMonth || !validYear) {
+    addInputError(
+      dateInput, 
+      errorElement, 
+      'Data inválida. Tente uma data existente.'
+    );
+    return;
+  }
+
+  const isLeapYear = (
+    validYear[0] % 100 !== 0 
+    && validYear[0] % 4 === 0 
+    || validYear[0] % 400 === 0
+  );
+
+  if (validDay[0] >= '29' && validMonth[0] === '02' && !isLeapYear) {
+    addInputError(
+      dateInput, 
+      errorElement, 
+      'Data inválida. Este dia não existe no ano informado.'
+    );
+    return;
+  }
+  
+  removeInputError(dateInput, errorElement);
+}
+
+const CPF = (event, errorElement) => {
   if (!requiredFieldFilled(event, errorElement)) {
     return;
   }
@@ -88,10 +152,12 @@ const phone = (event, errorElement) => {
     addInputError(
       event.target, 
       errorElement, 
-      'Formato de celular inválido'
+      'CPF inválido. Tente o formato 000.000.000-00'
     );
     return;
   }
+
+  removeInputError(event.target, errorElement);
 }
 
 export const inputValidation = {
@@ -100,5 +166,7 @@ export const inputValidation = {
   requiredFieldFilled,
   allRequiredFieldsFilled,
   email,
-  phone
+  phone,
+  date,
+  CPF
 }
