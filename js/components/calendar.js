@@ -57,6 +57,7 @@ const selectedDate = (event, liArray) => {
 	event.target.classList.toggle('active');
 	hideCalendar();
 	birthDateInput.value = event.target.getAttribute('data-date');
+	birthDateInput.focus();
 }
 
 const renderCalendar = () => {
