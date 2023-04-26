@@ -10,7 +10,7 @@
 }
 
 .input:not(:placeholder-shown) + .input__label, 
-.input:focus + .input__label {
+.input:focus:not(:read-only) + .input__label {
   top: -.5rem;
   font-weight: 500;
   transition: all .25s;
@@ -22,8 +22,12 @@
   color: var(--gray-500);
 }
 
-.input:focus + .input__label {
+.input:focus:not(:read-only) + .input__label {
   color: var(--purple-500);
+}
+
+.input:read-only + .input__label {
+  color: var(--gray-400);
 }
 
 /*
@@ -31,11 +35,11 @@
   deve-se colocar a classe inactive no input de numero
   e colocar o atributo readonly   
 */
-.input.inactive,
+/* .input.inactive,
 .input.inactive + .input__label,
 .input.inactive:focus + .input__label {
   color: var(--gray-400);
-}
+} */
 
 .input__error-message {
   margin-top: 4px;
@@ -45,10 +49,12 @@
   color: var(--red-400);
 }
 
-.input-container.invalid  .input__label {
+.input-container.invalid  .input__label,
+.house-number-container.invalid  .input__label {
   color: var(--red-400);
 }
 
-.input-container.invalid .input {
+.input-container.invalid .input,
+.house-number-container.invalid .input {
   border: 1px solid var(--red-400);
 }

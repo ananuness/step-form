@@ -5,16 +5,18 @@
   margin-bottom: 1.5rem;
 }
 
-.number-field {
+.row-input-field {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1rem;
 }
 
-.number-field .input {
-  width: 0;
+.house-number-container {
+  width: 50%;
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .input {
@@ -27,8 +29,18 @@
   background-color: var(--gray-50);
 }
 
-.input:focus-visible, .input:focus {
+input:read-only:not([type='checkbox']) {
+  color: var(--gray-400);
+  cursor: default;
+}
+
+.input:focus-visible,
+.input:focus {
   outline: none;
+}
+
+.input:focus-visible:not(:read-only), 
+.input:focus:not(:read-only) {
   border: 1px solid var(--purple-500);
 }
 
@@ -43,9 +55,9 @@
 
 .checkbox {
   appearance: none;
-  z-index: 0;
+  width: 20px;
+  height: 20px;
 	display: inline-block;
-	padding: 9px;
 	border-radius: 4px;
 	border: 1px solid var(--gray-400);
   background-color: var(--gray-50);
@@ -58,16 +70,13 @@
 	background-color: var(--purple-500);
 }
 
-.checkbox:checked {
-  padding: 0;
-}
-
 .checkbox:checked::after {
 	content: url(../../assets/icons/check.svg);
   display: flex;
 }
 
-.checkbox:focus {
+.checkbox:focus, 
+.checkbox:focus-visible {
   outline: 1px solid var(--purple-800);
 }
 
