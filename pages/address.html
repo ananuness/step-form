@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fafafa">
+    <link rel="shortcut icon" href="../assets/icons/docs.svg" type="image/svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Step Form</title>
@@ -57,7 +59,7 @@
         </div>
       </div>
 
-      <form class="form address">
+      <form class="form address" novalidate>
         <!-- 2 - cep (max 9), cidade/estado, endereco (max 50), 
           numero (max 6) (opcao sem numero), bairro (max 50), 
           complemento (max 30) e ponto de referencia (max 50)
@@ -73,6 +75,7 @@
             aria-describedby="zip-code-error" 
             autocomplete="off"
             maxlength="9"
+            required
           >
           <label id="zip-code-label" class="input__label" for="zip-code">
             CEP
@@ -88,60 +91,15 @@
             placeholder="Cidade/Estado" 
             aria-labelledby="city-uf-label" 
             aria-describedby="city-uf-error"
-            autocomplete="off" 
+            aria-readonly="true"
+            autocomplete="off"
+            readonly
+            required
           >
           <label id="city-uf-label" class="input__label" for="city-uf">
             Cidade/Estado
           </label>
           <span id="city-uf-error" class="input__error-message"></span>
-        </div>
-        <div class="input-container">
-          <input 
-            name="streetAddress" 
-            id="street-address" 
-            class="input" 
-            type="text" 
-            placeholder="Endereço" 
-            aria-labelledby="street-address-label" 
-            aria-describedby="street-address-error" 
-            autocomplete="off"
-            maxlength="50"
-          >
-          <label id="street-address-label" class="input__label" for="street-address">
-            Endereço
-          </label>
-          <span id="street-address-error" class="input__error-message"></span>
-        </div>
-        <div class="input-container">
-          <div class="number-field">
-            <input 
-              name="houseNumber" 
-              id="house-number" 
-              class="input" 
-              type="text" 
-              placeholder="Número" 
-              aria-labelledby="house-number-label" 
-              aria-describedby="house-number-error"
-              autocomplete="off"
-              maxlength="6"
-            >
-            <label id="house-number-label" class="input__label" for="house-number">
-              Número
-            </label>
-
-            <label id="no-house-number-label" class="checkbox__label" for="no-house-number">
-              <input 
-                name="noHouseNumber" 
-                id="no-house-number" 
-                class="checkbox" 
-                type="checkbox"
-                aria-labelledby="no-house-number-label" 
-              >
-              Sem número
-            </label>
-          </div>
-
-          <span id="house-number-error" class="input__error-message">opa</span>
         </div>
         <div class="input-container">
           <input 
@@ -152,13 +110,69 @@
             placeholder="Bairro" 
             aria-labelledby="district-label" 
             aria-describedby="district-error" 
+            aria-readonly="true"
             autocomplete="off"
             maxlength="50"
+            readonly
+            required
           >
           <label id="district-label" class="input__label" for="district">
             Bairro
           </label>
           <span id="district-error" class="input__error-message"></span>
+        </div>
+        <div class="input-container">
+          <input 
+            name="streetAddress" 
+            id="street-address" 
+            class="input" 
+            type="text" 
+            placeholder="Endereço" 
+            aria-labelledby="street-address-label" 
+            aria-describedby="street-address-error" 
+            aria-readonly="true"
+            autocomplete="off"
+            maxlength="50"
+            readonly
+            required
+          >
+          <label id="street-address-label" class="input__label" for="street-address">
+            Endereço
+          </label>
+          <span id="street-address-error" class="input__error-message"></span>
+        </div>
+        <div class="input-container row-input-field">
+          <div class="house-number-container">
+            <input 
+              name="houseNumber" 
+              id="house-number" 
+              class="input" 
+              type="text" 
+              placeholder="Número" 
+              aria-labelledby="house-number-label" 
+              aria-describedby="house-number-error"
+              autocomplete="off"
+              maxlength="6"
+              required
+            >
+            <label id="house-number-label" class="input__label" for="house-number">
+              Número
+            </label>
+
+            <span id="house-number-error" class="input__error-message"></span>
+          </div>
+
+            <label id="no-house-number-label" class="checkbox__label" for="no-house-number">
+              <input 
+                name="noHouseNumber" 
+                id="no-house-number" 
+                class="checkbox" 
+                type="checkbox"
+                aria-labelledby="no-house-number-label" 
+                autocomplete="off"
+              >
+              Sem número
+            </label>
         </div>
         <div class="input-container">
           <input 
