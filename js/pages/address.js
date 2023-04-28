@@ -1,7 +1,7 @@
 import { getData, redirect, storageObject } from '../components/form.js';
 import { updateStep } from '../components/stepper.js';
 import { inputMask } from '../validations/input-mask.js';
-import { inputValidation } from '../validations/inputs.js'
+import { inputValidation } from '../validations/inputs.js';
 
 const addressForm = document.querySelector('.address');
 const previousBtn = document.getElementById('prev-btn');
@@ -115,4 +115,4 @@ addressForm.addEventListener('submit', event => {
 
   storageObject('address', getData(event));
   redirect('./payment.html');
-})
+});
