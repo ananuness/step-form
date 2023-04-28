@@ -23,11 +23,6 @@
   flex-direction: column;
 }
 
-/* futuramente esse estilo sera aplicado apenas quando o input de CVV estiver focado */
-.card:hover .card-inner {
-  transform: rotateY(-180deg);
-}
-
 .card-inner {
   height: 100%;
   position: relative;
