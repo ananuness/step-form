@@ -31,6 +31,8 @@ const cardCVC = document.querySelector('.card__cvc');
 
 updateStep(3);
 
+inputMask.addMask(cardNumberInput, inputMask.card16Digit);
+
 const fillCardInfo = (cardField, value) => {
   if (!value) {
     cardField.textContent = cardField.getAttribute('data-label');
@@ -61,13 +63,13 @@ CVCInput.addEventListener('input', event => {
   inputValidation.requiredFieldFilled(event, CVCError);
 });
 
-CVCInput.addEventListener('focusin', () => {
-  card.style.transform = 'rotateY(-180deg)';
-});
+CVCInput.addEventListener('focusin', () => 
+  card.style.transform = 'rotateY(-180deg)'
+);
 
-CVCInput.addEventListener('focusout', () => {
-  card.style.transform = 'none';
-});
+CVCInput.addEventListener('focusout', () => 
+  card.style.transform = 'none'
+);
 
 cardHolderCPFOrCNPJInput.addEventListener('change', event => {
   inputValidation.requiredFieldFilled(event, cardHolderCPFOrCNPJError);
