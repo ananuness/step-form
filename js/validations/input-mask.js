@@ -65,6 +65,44 @@ const zipCode = value => {
   .replace(/-(\d{3})\d+?$/, '$1');
 }
 
+// 0000 000000 0000
+const card14Digit = value => {
+  return value
+  .replace(/\D/g, "")
+  .replace(/^(\d{4})/, "$1 ")
+  .replace(/(\d{6})/, "$1 ")
+  .replace(/(\d{4})\d+?$/, "$1");
+}
+
+// 0000 000000 00000
+const card15Digit = value => {
+  return value
+  .replace(/\D/g, "")
+  .replace(/(\d{4})/, "$1 ")
+  .replace(/(\d{6})/, "$1 ")
+  .replace(/(\d{5})\d+?$/, "$1");
+}
+
+// 0000 0000 0000 0000
+const card16Digit = value => {
+  return value
+  .replace(/\D/g, "")
+  .replace(/(\d{4})(\d)/, "$1 $2")
+  .replace(/(\d{4})(\d)/, "$1 $2")
+  .replace(/(\d{4})(\d)/, "$1 $2")
+  .replace(/(\d{4})\d+?$/, "$1");
+}
+
+// 0000 0000 0000 0000 000
+const card19Digit = value => {
+  return value
+  .replace(/\D/g, "")
+  .replace(/(\d{4})(\d)/, "$1 $2")
+  .replace(/(\d{4})(\d)/, "$1 $2")
+  .replace(/(\d{4})(\d)/, "$1 $2")
+  .replace(/(\d{4})(\d)/, "$1 $2");
+}
+
 export const inputMask = {
   addMask,
   onlyNumbers,
@@ -74,5 +112,9 @@ export const inputMask = {
   date,
   CPF,
   CNPJ,
-  zipCode
+  zipCode,
+  card14Digit,
+  card15Digit,
+  card16Digit,
+  card19Digit
 }
