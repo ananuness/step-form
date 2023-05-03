@@ -129,6 +129,7 @@
                 placeholder="Código de segurança" 
                 aria-labelledby="cvc-label" 
                 aria-describedby="cvc-error" 
+                autocomplete="off"
                 maxlength="4"
                 required
               >
@@ -170,6 +171,7 @@
 
         <div class="card" aria-label="cartão">
           <div class="card-inner">
+            <div class="inner__circle-effect"></div>
             <div class="card__front">
               <div class="card__top">
                 <span 
@@ -181,7 +183,7 @@
                 </span>
                 <img 
                   src="../assets/flags/default.svg" 
-                  alt="card flag here" 
+                  alt="" 
                   class="card__flag-img"
                 >
               </div>
@@ -232,7 +234,6 @@
     <img src="./assets/images/happy-woman.svg" alt="desenho de uma mulher feliz" class="woman-img"> -->
 
     <script type="module" src="../js/components/stepper.js"></script>
-    <script type="module" src="../js/components/form.js"></script>
     <script type="module" src="../js/pages/payment.js"></script>
   </body>
 </html>
