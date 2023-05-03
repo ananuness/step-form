@@ -12,5 +12,8 @@ export const getData = (event) => {
   return data;
 }
 
-export const storageObject = (property, object) => 
-  localStorage.setItem(property, JSON.stringify(object));
+export const storageData = (property, data) => 
+  localStorage.setItem(property, JSON.stringify(data));
+
+export const getStoragedData = (property) => 
+  JSON.parse(localStorage.getItem(property));
