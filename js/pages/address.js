@@ -1,4 +1,4 @@
-import { getData, redirect, storageObject } from '../components/form.js';
+import { getData, redirect, storageData } from '../components/form.js';
 import { updateStep } from '../components/stepper.js';
 import { inputMask } from '../validations/input-mask.js';
 import { inputValidation } from '../validations/inputs.js';
@@ -76,6 +76,7 @@ const toggleReadOnly = () => {
 }
 
 zipCodeInput.addEventListener('input', event => findZipCode(event));
+
 zipCodeInput.addEventListener('change', event => 
   inputValidation.zipCode(event, zipCodeError)
 );
@@ -113,6 +114,6 @@ addressForm.addEventListener('submit', event => {
     return;
   }
 
-  storageObject('address', getData(event));
+  storageData('address', getData(event));
   redirect('./payment.html');
 });
