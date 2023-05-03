@@ -1,3 +1,5 @@
+import { createElementFromString } from '../utils/create-element.js';
+
 const birthDateInput = document.querySelector('#birth-date');
 const calendarBtn = document.querySelector('.calendar-icon');
 const calendarWrapper = document.querySelector('.calendar__wrapper');
@@ -25,18 +27,6 @@ const months = [
   'Novembro', 
   'Dezembro'
 ];
-
-const createElementFromString = (tag, attributes, content) => {
-	const element = document.createElement(tag);
-
-	Object.keys(attributes).forEach(attribute => {
-		element.setAttribute(attribute, attributes[attribute]);
-	});
-
-	element.innerHTML = content;
-
-	return element;
-}
 
 const hideCalendar = () => calendarWrapper.classList.add('inactive');
 
@@ -70,7 +60,8 @@ const renderCalendar = () => {
 	//clearing saved li's for the prev and next month appear correctly
 	daysTag.innerHTML = '';
 
-  for (let i = firstWeekDayofMonth; i > 0; i--) { // creating li of previous month last days
+	// creating li of previous month last days
+  for (let i = firstWeekDayofMonth; i > 0; i--) {
 		liTags.push(createElementFromString(
 			'li', 
 			{ 
@@ -81,7 +72,8 @@ const renderCalendar = () => {
 		));
   }
 
-  for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+	// creating li of all days of current month
+  for (let i = 1; i <= lastDateofMonth; i++) {
     isToday = (
       i === date.getDate() 
 			&& currMonth === new Date().getMonth() 
@@ -99,7 +91,8 @@ const renderCalendar = () => {
 		));
   }
 
-  for (let i = lastWeekDayofMonth; i < 6; i++) { // creating li of next month first days
+	// creating li of next month first days
+  for (let i = lastWeekDayofMonth; i < 6; i++) {
 		liTags.push(createElementFromString(
 			'li', 
 			{ 
