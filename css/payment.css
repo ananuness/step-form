@@ -31,7 +31,24 @@
   transform-style: preserve-3d;
 }
 
-.card__front, .card__back {
+.inner__circle-effect, 
+.card__front, 
+.card__back {
+  border-radius: 1rem;
+}
+
+.inner__circle-effect {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  clip-path: circle(0% at 1% 1%);
+  transition: all ease-out .5s;
+  overflow: hidden;
+}
+
+.card__front, 
+.card__back {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -39,20 +56,30 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
   user-select: none;
-  box-shadow: 0px 2px 12px 0px rgba(23, 23, 23, .2);
   overflow: hidden;
   backface-visibility: hidden;
+  box-shadow: 0px 2px 12px 0px rgba(23, 23, 23, .2);
   color: var(--gray-500);
-  background-color: var(--gray-200);
+  background: linear-gradient(
+    60deg,
+    rgb(203, 207, 210) 10%,
+    rgb(224, 224, 224) 90% 
+  );
 }
 
 .card__front {
-  padding: 1.25rem;
+  padding: 1.5rem;
 }
 
-.card__top, .card__bottom {
+.card__top, 
+.card__mid, 
+.card__bottom {
+  z-index: 1;
+}
+
+.card__top, 
+.card__bottom {
   display: flex;
   justify-content: space-between;
   font-size: .75rem;
@@ -68,6 +95,7 @@
 
 .card__flag-img {
   width: 32px;
+  height: 32px;
   position: relative;
   top: -8px;
 }
@@ -76,6 +104,8 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
+  letter-spacing: 1px;
+  font-size: 20px;
 }
 
 .card__bottom {
@@ -84,11 +114,12 @@
   gap: 1rem;
 }
 
-.card__bottom .card__info:first-child {
+.card__name {
   flex-grow: 1;
 }
 
 .card__back {
+  z-index: 1;
   transform: rotateY(180deg);
 }
 
@@ -111,4 +142,76 @@
 .card__cvc {
   padding-left: .75rem;
   border-left: 2px solid var(--gray-200);
+}
+
+.elo .inner__circle-effect,
+.elo .card__back  {
+  background: linear-gradient(
+    60deg, 
+    rgb(8, 8, 8) 10%,
+    rgb(56, 56, 56) 90% 
+  );
+}
+
+.hipercard .inner__circle-effect,
+.hipercard .card__back  {
+  background: linear-gradient(
+    60deg, 
+    rgb(179, 19, 27) 10%, 
+    rgb(219, 41, 50) 90%
+  );
+}
+
+.diners .inner__circle-effect,
+.diners .card__back {
+  background: linear-gradient(
+    60deg, 
+    rgb(13, 120, 191) 10%, 
+    rgb(56, 151, 214) 90%
+  );
+}
+
+.amex .inner__circle-effect,
+.amex .card__back {
+  background: linear-gradient(
+    60deg, 
+    rgb(1, 111, 208) 10%,
+    rgb(45, 156, 253) 90%
+  );
+}
+
+.mastercard .inner__circle-effect,
+.mastercard .card__back {
+  background: linear-gradient(
+    60deg, 
+    rgb(20, 20, 19) 10%,
+    rgb(68, 68, 68) 90%
+  );
+}
+
+.visa .inner__circle-effect,
+.visa .card__back {
+  background: linear-gradient(
+    60deg, 
+    rgb(14, 69, 149) 10%,
+    rgb(65, 123, 211) 90% 
+  );
+}
+
+.elo .inner__circle-effect,
+.hipercard .inner__circle-effect,
+.diners .inner__circle-effect,
+.amex .inner__circle-effect,
+.mastercard .inner__circle-effect,
+.visa .inner__circle-effect {
+  clip-path: circle(75%);
+}
+
+.elo .card__front,
+.hipercard .card__front,
+.diners .card__front,
+.amex .card__front,
+.mastercard .card__front,
+.visa .card__front {
+  color: var(--gray-100);
 }
