@@ -12,7 +12,7 @@
  <a href="#construction_site-estrutura-do-projeto">
   Estrutura do projeto
  </a> •
- <a href="#desk-validações">Validações</a> •
+ <a href="#clipboard-validações">Validações</a> •
  <a href="#woman_technologist-acertos-dificuldades-e-melhorias">
   Acertos, dificuldades e melhorias
  </a>
@@ -22,16 +22,16 @@
 
 Foram abordados conceitos apresentados nos cursos:
 
-- [HTML5 e CSS3 Parte 3: trabalhando com formulários e tabelas](https://cursos.alura.com.br/course/html5-css3-formularios-tabelas);
-- [JavaScript e HTML: desenvolva um jogo e pratique lógica de programação](https://cursos.alura.com.br/course/logica-programacao-javascript-html);
-- [Curso JavaScript e HTML: pratique lógica com desenhos, animações e um jogo](https://cursos.alura.com.br/course/logica-programacao-pratica-com-desenho-animacoes-em-jogo);
-- [JavaScript: tipos, variáveis e funções](https://cursos.alura.com.br/course/fundamentos-javascript-tipos-variaveis-funcoes);
-- [JavaScript: Arrays](https://cursos.alura.com.br/course/fundamentos-javascript-arrays);
-- [JavaScript: objetos](https://cursos.alura.com.br/course/fundamentos-javascript-objetos);
-- [JavaScript para Web: Crie páginas dinâmicas](hhttps://cursos.alura.com.br/course/javascript-web-paginas-dinamicas);
-- [JavaScript: manipulando o DOM](https://cursos.alura.com.br/course/javascript-manipulando-dom);
-- [JavaScript na Web: validação de Formulários e HTML5](https://cursos.alura.com.br/course/javascript-web-validacao-formularios-html5);
-- [JavaScript: consumindo e tratando dados de uma API](https://cursos.alura.com.br/course/javascript-consumindo-tratando-dados-api);
+- [HTML5 e CSS3 Parte 3: trabalhando com formulários e tabelas](https://cursos.alura.com.br/course/html5-css3-formularios-tabelas)
+- [JavaScript e HTML: desenvolva um jogo e pratique lógica de programação](https://cursos.alura.com.br/course/logica-programacao-javascript-html)
+- [Curso JavaScript e HTML: pratique lógica com desenhos, animações e um jogo](https://cursos.alura.com.br/course/logica-programacao-pratica-com-desenho-animacoes-em-jogo)
+- [JavaScript: tipos, variáveis e funções](https://cursos.alura.com.br/course/fundamentos-javascript-tipos-variaveis-funcoes)
+- [JavaScript: Arrays](https://cursos.alura.com.br/course/fundamentos-javascript-arrays)
+- [JavaScript: objetos](https://cursos.alura.com.br/course/fundamentos-javascript-objetos)
+- [JavaScript para Web: Crie páginas dinâmicas](https://cursos.alura.com.br/course/javascript-web-paginas-dinamicas)
+- [JavaScript: manipulando o DOM](https://cursos.alura.com.br/course/javascript-manipulando-dom)
+- [JavaScript na Web: validação de Formulários e HTML5](https://cursos.alura.com.br/course/javascript-web-validacao-formularios-html5)
+- [JavaScript: consumindo e tratando dados de uma API](https://cursos.alura.com.br/course/javascript-consumindo-tratando-dados-api)
 
 ## :desktop_computer: Demonstração
 
@@ -76,7 +76,7 @@ Foram abordados conceitos apresentados nos cursos:
 ```
 > pra fazer quotes
 
-## :clipboard: :mag_right: :white_check_mark: Validações
+## :clipboard: Validações
 
 <p>
   Grande parte das validações foram feitas utilizando funções 
@@ -142,7 +142,7 @@ Foram abordados conceitos apresentados nos cursos:
 - ☀️ Acertos: 
   
 
-- ⛈ Dificuldades:
+- 🌧️ Dificuldades:
   - controlar os estados de erro dos inputs;
   - criar uma boa organização para a pasta dos scripts;
   - aplicar o conceito de *Single Responsability* do SOLID;
