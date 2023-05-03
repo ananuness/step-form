@@ -1,3 +1,5 @@
+import { DateValidation } from './date.js';
+
 const addInputError = (input, errorElement, message) => {
   errorElement.textContent = message;
   input.parentElement.classList.add('invalid');
@@ -10,7 +12,11 @@ const removeInputError = (input, errorElement) => {
 
 const requiredFieldFilled = (event, errorElement) => {
   if (!event.target.value) {
-    addInputError(event.target, errorElement, 'Campo obrigatório.');
+    addInputError(
+      event.target, 
+      errorElement, 
+      'Campo obrigatório.'
+    );
     return false;
   }
   else {
@@ -46,18 +52,43 @@ const allRequiredFieldsFilled = (event, errorMessages) => {
   else return true;
 }
 
+const name = (event, errorElement) => {
+  if (!requiredFieldFilled(event, errorElement)) {
+    return;
+  }
+
+  if (event.target.value.trim().length < 3) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      `Nome inválido. Informe pelo menos 3 caracteres.`
+    );
+    return;
+  }
+
+  removeInputError(event.target, errorElement);
+}
+
 const email = (event, errorElement) => { 
   const emailInput = event.target;
 
   if (!emailInput.value) {
-    addInputError(emailInput, errorElement, 'Campo obrigatório.');
+    addInputError(
+      emailInput, 
+      errorElement, 
+      'Campo obrigatório.'
+    );
     return;
   }
 
   const emailAt = emailInput.value.split('@');
 
   if (emailAt.length !== 2) {
-    addInputError(emailInput, errorElement, 'E-mail deve conter um @');
+    addInputError(
+      emailInput, 
+      errorElement, 
+      'E-mail deve conter um @'
+    );
     return;
   }
 
@@ -98,7 +129,7 @@ const phone = (event, errorElement) => {
   removeInputError(event.target, errorElement);
 }
 
-const date = (event, errorElement) => {
+const fullDate = (event, errorElement) => {
   const dateInput = event.target;
 
   if (!requiredFieldFilled(event, errorElement)) { 
@@ -109,15 +140,15 @@ const date = (event, errorElement) => {
     addInputError(
       dateInput, 
       errorElement, 
-      'Data inválida. Tente o formato dd/mm/aaaa'
+      'Data inválida. Tente o formato DD/MM/AAAA'
     );
     return;
   }
 
   const dateValues = dateInput.value.split('/');  
-  const validDay = dateValues[0].match(/0[1-9]|[12][0-9]|3[01]/);
-  const validMonth = dateValues[1].match(/0[1-9]|1[012]/);
-  const validYear = dateValues[2].match(/19\d\d|20\d\d/);
+  const validDay = DateValidation.isValidDay(dateValues[0]);
+  const validMonth = DateValidation.isValidMonth(dateValues[1]);
+  const validYear = DateValidation.isValidFullYear(dateValues[2]);
 
   if (!validDay || !validMonth || !validYear) {
     addInputError(
@@ -128,17 +159,61 @@ const date = (event, errorElement) => {
     return;
   }
 
-  const isLeapYear = (
-    validYear[0] % 100 !== 0 
-    && validYear[0] % 4 === 0 
-    || validYear[0] % 400 === 0
-  );
-
-  if (validDay[0] >= '29' && validMonth[0] === '02' && !isLeapYear) {
+  if (
+    validDay[0] >= '29' && validMonth[0] === '02' && 
+    !DateValidation.isLeapYear(validYear[0])
+  ) {
     addInputError(
       dateInput, 
       errorElement, 
       'Data inválida. Este dia não existe no ano informado.'
+    );
+    return;
+  }
+  
+  removeInputError(dateInput, errorElement);
+}
+
+const monthYearDate = (event, errorElement) => {
+  const dateInput = event.target;
+  const currMonth = new Date().getMonth() + 1;
+  const currYear = String(new Date().getFullYear()).slice(2);
+
+  if (!requiredFieldFilled(event, errorElement)) {
+    return;
+  }
+
+  if (dateInput.value.length !== 5) { 
+    addInputError(
+      dateInput, 
+      errorElement, 
+      'Data inválida. Tente o formato MM/AA'
+    );
+    return;
+  }
+
+  const dateValues = dateInput.value.split('/');  
+  const validMonth = DateValidation.isValidMonth(dateValues[0]);
+  const validYear = DateValidation.isValidYear(dateValues[1]);
+
+  if (!validMonth || !validYear) {
+    addInputError(
+      dateInput, 
+      errorElement, 
+      'Data inválida. Tente uma data existente.'
+    );
+    return;
+  }
+
+  if (
+    Number(validYear[0]) < Number(currYear) || 
+    Number(validYear[0]) === Number(currYear) &&
+    Number(validMonth[0]) < currMonth
+  ) {
+    addInputError(
+      dateInput, 
+      errorElement, 
+      'Data inválida. Tente novamente.'
     );
     return;
   }
@@ -180,14 +255,99 @@ const zipCode = (event, errorElement) => {
   removeInputError(event.target, errorElement);
 }
 
+const cardNumber = (cardType, event, errorElement) => {
+  if (!requiredFieldFilled(event, errorElement)) {
+    return;
+  }
+
+  if (!cardType && event.target.value.length < 14) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      `Número de cartão inválido. Informe no mínimo 14 dígitos.`
+    );
+    return;
+  }
+
+  if (
+    cardType && cardType.minLengthWithSpaces && 
+    event.target.value.length < cardType.minLengthWithSpaces
+  ) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      `Número de cartão inválido. 
+      Informe no mínimo ${cardType.minLength} dígitos.`
+    );
+    return;
+  }
+  else if (
+    cardType && !cardType.minLengthWithSpaces &&
+    event.target.value.length < cardType.maxLengthWithSpaces
+  ) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      `Número de cartão inválido. 
+      Informe no mínimo ${cardType.maxLength} dígitos.`
+    );
+    return;
+  }
+
+  removeInputError(event.target, errorElement);
+}
+
+const CVC = (event, errorElement) => {
+  if (!requiredFieldFilled(event, errorElement)) {
+    return;
+  }
+
+  if (event.target.value.length < 3) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      `CVC inválido. Informe no mínimo 3 dígitos.`
+    );
+    return;
+  }
+
+  removeInputError(event.target, errorElement);
+}
+
+const CPFOrCNPJ = (event, errorElement) => {
+  if (!requiredFieldFilled(event, errorElement)) {
+    return;
+  }
+
+  if (
+    event.target.value.length < 14 ||
+    event.target.value.length > 15 && 
+    event.target.value.length < 18
+  ) {
+    addInputError(
+      event.target, 
+      errorElement, 
+      `CPF/CNPJ inválido. Informe entre 11 a 14 dígitos.`
+    );
+    return;
+  }
+
+  removeInputError(event.target, errorElement);
+}
+
 export const inputValidation = {
   addInputError,
   removeInputError,
   requiredFieldFilled,
   allRequiredFieldsFilled,
+  name,
   email,
   phone,
-  date,
+  fullDate,
+  monthYearDate,
   CPF,
-  zipCode
+  zipCode,
+  cardNumber,
+  CVC,
+  CPFOrCNPJ
 }
