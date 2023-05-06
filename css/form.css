@@ -30,17 +30,6 @@
   color: var(--gray-400);
 }
 
-/*
-  quando o checkbox de sem numero for marcado
-  deve-se colocar a classe inactive no input de numero
-  e colocar o atributo readonly   
-*/
-/* .input.inactive,
-.input.inactive + .input__label,
-.input.inactive:focus + .input__label {
-  color: var(--gray-400);
-} */
-
 .input__error-message {
   margin-top: 4px;
   margin-left: 1px;
