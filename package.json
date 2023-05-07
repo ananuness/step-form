@@ -1,7 +1,7 @@
 {
   "name": "form",
   "version": "1.0.0",
-  "description": "An abstraction of a form commonly used on ecommerce sites, involving the steps of personal data, address and payment method",
+  "description": "An abstraction of a form commonly used on ecommerce sites, involving the steps of personal data, address and payment method (credit card only)",
   "type": "module",
   "main": "index.js",
   "scripts": {
