@@ -320,9 +320,8 @@ const CPFOrCNPJ = (event, errorElement) => {
   }
 
   if (
-    event.target.value.length < 14 ||
-    event.target.value.length > 15 && 
-    event.target.value.length < 18
+    event.target.value.length !== 14 &&
+    event.target.value.length !== 18
   ) {
     addInputError(
       event.target, 
