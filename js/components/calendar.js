@@ -1,6 +1,8 @@
 import { createElementFromString } from '../utils/create-element.js';
+import { inputValidation } from '../validations/inputs.js';
 
-const birthDateInput = document.querySelector('#birth-date');
+const birthDateInput = document.getElementById('birth-date');
+const birthDateError = document.getElementById('birth-error');
 const calendarBtn = document.querySelector('.calendar-icon');
 const calendarWrapper = document.querySelector('.calendar__wrapper');
 const currentDate = document.querySelector('.current-date');
@@ -48,6 +50,10 @@ const selectedDate = (event, liArray) => {
 	hideCalendar();
 	birthDateInput.value = event.target.getAttribute('data-date');
 	birthDateInput.focus();
+
+	if (birthDateError.textContent) {
+		inputValidation.removeInputError(birthDateInput, birthDateError);
+	}
 }
 
 const renderCalendar = () => {
