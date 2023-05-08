@@ -102,7 +102,7 @@ noHouseNumberCheckbox.addEventListener('focus', toggleReadOnly);
 previousBtn.addEventListener('click', event => {
   event.preventDefault();
 
-  alert('Os dados serão perdidos, tem certeza que quer voltar?');
+  // alert('Os dados serão perdidos, tem certeza que quer voltar?');
 
   redirect('../index.html');
 });
