@@ -9,7 +9,7 @@
 <p align="center">
  <a href="#books-cursos">Cursos</a> • 
  <a href="#desktop_computer-demonstração">Demonstração</a> •
- <a href="#construction_site-estrutura-do-projeto">
+ <a href="#building_construction-estrutura-do-projeto">
   Estrutura do projeto
  </a> •
  <a href="#clipboard-validações">Validações</a> •
@@ -38,7 +38,7 @@ Foram abordados conceitos apresentados nos cursos:
 <!-- <img src="#.gif" alt="gif (imagem que se movimenta) mostrando a aplicação do formulário">
 <p>Ou acesse o <a href="#">site</a>.</p> -->
 
-## :construction_site: Estrutura do projeto
+## :building_construction: Estrutura do projeto
 
 ```bash
     ├── assets
