@@ -31,7 +31,7 @@ const findZipCode = async (event) => {
 
   const zipcodeValue = event.target.value.replace('-', '');
 
-  const request = await fetch(`http://viacep.com.br/ws/${zipcodeValue}/json`);
+  const request = await fetch(`https://viacep.com.br/ws/${zipcodeValue}/json`);
 
   const response = await request.json();
 
