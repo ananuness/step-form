@@ -32,6 +32,7 @@ Foram abordados conceitos apresentados nos cursos:
 - [JavaScript: manipulando o DOM](https://cursos.alura.com.br/course/javascript-manipulando-dom)
 - [JavaScript na Web: validação de Formulários e HTML5](https://cursos.alura.com.br/course/javascript-web-validacao-formularios-html5)
 - [JavaScript: consumindo e tratando dados de uma API](https://cursos.alura.com.br/course/javascript-consumindo-tratando-dados-api)
+- [Expressões regulares: capturando textos de forma mágica](https://cursos.alura.com.br/course/expressoes-regulares)
 
 ## :desktop_computer: Demonstração (em breve)
 
@@ -185,8 +186,11 @@ Foram abordados conceitos apresentados nos cursos:
 
 ## :woman_technologist: Acertos, dificuldades e melhorias
 
-<!-- - ☀️ Acertos: 
-  -  -->
+- ☀️ Acertos: 
+  - organização da estrutura do projeto;
+  - trazer um bom feedback de erros para o usuário;
+  - limitar a margem de erro do usuário com o uso de máscaras;
+  - criatividade na solução para "simular estados" apenas com js puro;
 
 - 🌧️ Dificuldades:
   - controlar os estados de erro dos inputs;
@@ -198,7 +202,13 @@ Foram abordados conceitos apresentados nos cursos:
   - encontrar boas informações para validar os campos relacionados ao
   pagamento;
 
-<!-- - 🌈 O que pode melhorar: -->
+- 🌈 O que pode melhorar:
+  - quando o usuário voltar um step, as informações preenchidas estarem
+  nos campos;
+  - quando o usuário deixar a página ou clicar para voltar, avisar que
+  os dados do step atual serão perdidos antes de prosseguir;
+  - deixar a validação mais exata usando alguma das APIs informadas na
+  seção de Validações em [Bandeiras do cartão](#bandeiras-do-cartão);
   
 <h4 align="center">🚧 Readme em construção 👷🏻‍♀️</h4>
 
