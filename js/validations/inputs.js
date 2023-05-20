@@ -260,7 +260,7 @@ const cardNumber = (cardType, event, errorElement) => {
     return;
   }
 
-  if (!cardType && event.target.value.length < 14) {
+  if (!cardType && event.target.value.length < 17) {
     addInputError(
       event.target, 
       errorElement, 

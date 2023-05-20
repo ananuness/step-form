@@ -147,6 +147,10 @@ paymentForm.addEventListener('submit', event => {
   }
 
   storageData('paymentMethod', getData(event));
-  storageData('cardType', cardType.formalName);
+
+  if (cardType && cardType.hasOwnProperty('formalName')) {
+    storageData('cardType', cardType.formalName);
+  }
+
   redirect('./resume.html');
 });
