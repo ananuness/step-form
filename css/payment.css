@@ -17,7 +17,6 @@
 }
 
 .card {
-  width: 335px;
   height: 208px;
   display: flex;
   flex-direction: column;
@@ -105,7 +104,6 @@
   display: flex;
   align-items: center;
   letter-spacing: 1px;
-  font-size: 20px;
 }
 
 .card__bottom {
@@ -214,4 +212,49 @@
 .mastercard .card__front,
 .visa .card__front {
   color: var(--gray-100);
+}
+
+@media screen and (min-width: 320px) {
+  .payment-form-container {
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  
+  .card {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 360px) {  
+  .card {
+    max-width: 335px;
+    width: 100%;
+    display: flex;
+  }
+
+  .card__mid {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 420px) {  
+  .card__mid {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .payment-container {
+    max-width: 903px;
+  }
+
+  .payment-container .stepper-container {
+    max-width: 100%;
+  }
+
+  .payment-form-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }

@@ -5,20 +5,6 @@
   margin-bottom: 1.5rem;
 }
 
-.row-input-field {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-}
-
-.house-number-container {
-  width: 50%;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
 .input {
   width: 100%;
   padding: .75rem 1rem;
@@ -86,4 +72,32 @@ input:read-only:not([type='checkbox']) {
   top: 14px;
   right: 16px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 320px) {
+  .row-input-field {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .5rem;
+  }
+  
+  .house-number-container {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 350px) {
+  .row-input-field {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .house-number-container {
+    width: 50%;
+  }
 }
