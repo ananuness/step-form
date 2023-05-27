@@ -8,6 +8,7 @@
 }
 
 .main__heading {
+  width: 100%;
   text-align: center;
   font-size: 1.5rem;
 }
@@ -23,6 +24,7 @@
 }
 
 .dashed-line {
+  width: 100%;
   height: 2px;
   border-top: 2px dashed var(--gray-300);
 }
@@ -30,4 +32,10 @@
 .form__btn {
   align-self: flex-end;
   margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 320px) {
+  .resume {
+    align-items: flex-start;
+  }
 }
