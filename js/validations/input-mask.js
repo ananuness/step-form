@@ -6,7 +6,7 @@ const addMask = (targetInput, mask) => {
 
 const onlyLetters = value => {
   return value
-    .replace(/[0-9\\><!|@#¨}'{"/?$%^&*)(+=,:;._-]+/g, "");
+    .replace(/[0-9\\><!|@#¨}'{"/?$%^&*)(+=,\[\]:;._-]+/g, "");
 }
 
 const onlyNumbers = value => {
