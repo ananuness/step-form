@@ -1,45 +1,35 @@
 <h1 align="center">🛍 Step Form</h1>
 
 <p align="center">
-  Uma abstração de um formulário comumente usado em sites ecommerce, 
-  envolvendo os passos de dados pessoais, endereço e método de 
-  pagamento (envolvendo apenas pagamentos com cartão). 🛒
+  An abstraction of a form commonly used in ecommerce, with the steps of personal 
+  data, address and payment method (involving only card payments). 🛒
 </p>
 
 <p align="center">
- <a href="#books-cursos">Cursos</a> • 
- <a href="#desktop_computer-demonstração">Demonstração</a> •
- <a href="#building_construction-estrutura-do-projeto">
-  Estrutura do projeto
+ <a href="#books-subjects">Subjects</a> • 
+ <a href="#desktop_computer-demo">Demo</a> •
+ <a href="#building_construction-structure">
+  Structure
  </a> •
- <a href="#clipboard-validações">Validações</a> •
- <a href="#woman_technologist-acertos-dificuldades-e-melhorias">
-  Acertos, dificuldades e melhorias
+ <a href="#clipboard-validations">Validations</a> •
+ <a href="#woman_technologist-achievements-difficulties-and-improvements">
+  Achievements, difficulties and improvements
  </a>
 </p>
 
-## :books: Cursos
+## :books: Subjects
 
-Foram abordados conceitos apresentados nos cursos:
+- HTML
+- CSS
+- JavaScript (Arrays, Objects, DOM and Fetch API)
+- Regex (Capturing groups, replace method and its use, backreferences)
 
-- [HTML5 e CSS3 Parte 3: trabalhando com formulários e tabelas](https://cursos.alura.com.br/course/html5-css3-formularios-tabelas)
-- [JavaScript e HTML: desenvolva um jogo e pratique lógica de programação](https://cursos.alura.com.br/course/logica-programacao-javascript-html)
-- [Curso JavaScript e HTML: pratique lógica com desenhos, animações e um jogo](https://cursos.alura.com.br/course/logica-programacao-pratica-com-desenho-animacoes-em-jogo)
-- [JavaScript: tipos, variáveis e funções](https://cursos.alura.com.br/course/fundamentos-javascript-tipos-variaveis-funcoes)
-- [JavaScript: Arrays](https://cursos.alura.com.br/course/fundamentos-javascript-arrays)
-- [JavaScript: objetos](https://cursos.alura.com.br/course/fundamentos-javascript-objetos)
-- [JavaScript para Web: Crie páginas dinâmicas](https://cursos.alura.com.br/course/javascript-web-paginas-dinamicas)
-- [JavaScript: manipulando o DOM](https://cursos.alura.com.br/course/javascript-manipulando-dom)
-- [JavaScript na Web: validação de Formulários e HTML5](https://cursos.alura.com.br/course/javascript-web-validacao-formularios-html5)
-- [JavaScript: consumindo e tratando dados de uma API](https://cursos.alura.com.br/course/javascript-consumindo-tratando-dados-api)
-- [Expressões regulares: capturando textos de forma mágica](https://cursos.alura.com.br/course/expressoes-regulares)
+## :desktop_computer: Demo
 
-## :desktop_computer: Demonstração (em breve)
+<!-- video here
+<p>Or access it <a href="#">here</a>.</p> -->
 
-<!-- <img src="#.gif" alt="gif (imagem que se movimenta) mostrando a aplicação do formulário">
-<p>Ou acesse o <a href="#">site</a>.</p> -->
-
-## :building_construction: Estrutura do projeto
+## :building_construction: Structure
 
 ```bash
     ├── assets
@@ -94,128 +84,122 @@ Foram abordados conceitos apresentados nos cursos:
     └── README.md
 ```
 
-## :clipboard: Validações
+## :clipboard: Validations
 
 <p>
-  Grande parte das validações foram feitas utilizando funções 
-  personalizadas e máscaras nos inputs com regex, enquanto o usuário 
-  digita (<code>onInput</code>) ou quando o input perde o foco 
-  (<code>onChange</code>) para uma resposta mais imediata otimizando o
-  tempo do usuário, facilitando e limitando o que é informado
-  de uma maneira simples, visualmente intuitiva e agradável, além de 
-  garantir maior tolerância à falhas nos campos digitados.
+  Most of the validations were done using custom functions and regex masks in 
+  the inputs, while the user types (<code>onInput</code>) or when the input loses 
+  focus (<code>onChange</code>) for a more immediate response, optimizing the 
+  user's time, facilitating and limiting what is entered in a simple, visually 
+  intuitive and pleasant way, in addition to ensuring greater tolerance to errors 
+  in the fields entered.
 </p>
 
-> Os eventos onInput e onChange são similares, mas a
-> principal diferença é que o onInput ocorre imediatamente depois do 
-> valor do input mudar, enquanto o onChange ocorre quando o input perde 
-> o foco. Outra diferença é que o onChange funciona também em elementos ```<select>```.
+> The onInput and onChange events are similar, but the main difference is that
+> onInput occurs immediately after the input value changes, while onChange occurs
+> when the input loses focus. Another difference is that onChange also works on
+> `<select>` elements.
 
-### Máscaras nos inputs
+### Input masks
 
 <p>
-  Para a maioria das máscaras, a implementação foi baseada no conceito
-  de grupos de captura da regex juntamente com o método 
-  <code>.replace()</code> que, a cada mudança de valor, verifica e, 
-  quando necessário, adiciona os símbolos caracteríscos utilizando as
-  variáveis temporárias que são criadas e enumeradas de acordo com a
-  ordem de abertura de parêntenses na expressão.
+  For most masks, the implementation was based on the concept of 
+  <em>regex capturing groups</em> along with the <code>.replace()</code> method 
+  which, at each value change, checks and, when necessary, add characteristic 
+  symbols using the temporary variables that are created and enumerated according 
+  to the order of opening parentheses in the expression.
 </p>
 <p>
-  Explicando melhor, os grupos de captura são construídos colocando 
-  o <i>pattern</i> a ser capturado entre parênteses. Exemplo:
+  Explaining better, capture groups are constructed by placing the pattern to be
+  captured in parentheses. Example:
 </p>
 
 ```js
-  const phone = value => {
-    return value
-      .replace(/\D/g, "")
-      .replace(/(\d{2})(\d)/, "($1) $2")
-      .replace(/(\d{5})(\d)/, "$1-$2")
-      .replace(/-(\d{4})(\d)/, "$1");
-  }
+const phone = (value) => {
+  return value
+    .replace(/\D/g, "")
+    .replace(/(\d{2})(\d)/, "($1) $2")
+    .replace(/(\d{5})(\d)/, "$1-$2")
+    .replace(/-(\d{4})(\d)/, "$1");
+};
 ```
 
 <p>
-  A substring correspondente ao grupo é salva em uma "variável" 
-  temporária, que pode ser acessada <b>dentro</b> da mesma regex 
-  usando uma barra invertida e o número do grupo de captura, como
-  <code>/(\d) \1/</code> ou acessando através da notação
-  <code>$(número do grupo)</code>, sendo esta usada no método replace.
-  Lembrando que a enumeração é de acordo posição de seus parênteses de 
-  abertura (da esquerda para a direita), começando em 1: 
+  The substring corresponding to the group is saved in a temporary "variable",
+  which can be accessed <strong>within</strong> the same regex using a backslash 
+  and the capturing group number, such as <code>/(\d) \1/</code> or accessing 
+  through the notation <code>$(group number)</code>, which is used in the replace 
+  method. Remembering that the enumeration is according to the position of its 
+  opening parentheses (from left to right), starting at 1:
 </p>
 
 ```js
   .replace(/(\d{2})(\d)/, "($1) $2")
 ```
-<p>
-  Isso quer dizer que queremos o primeiro alfanumérico com tamanho 
-  igual a 2, que seja colocado entre parênteses e que o próximo valor
-  digitado seja separado do primeiro grupo com um espaço. Chamamos 
-  isso de <i>backreferences</i>.
-</p>
-
-### Bandeiras do cartão
 
 <p>
-  Sobre o método para validar e identificar a bandeira do cartão
-  que escolhi seguir, já os informo que não é muito recomendada, pois 
-  se baseia validação do BIN do cartão (os 6 primeiros dígitos do 
-  número) em regex e os BINs podem sofrer alterações ao longo dos anos.
-  Além de que trabalhar com regex nesse tipo de dado variável não é
-  escalável nem de fácil manutenção.
+  This means that we want the first alphanumeric with size equal to 2 to be 
+  placed in parentheses and the next value entered to be separated from the first 
+  group with a space. We call these <em>backreferences</em>.
+</p>
+
+### Card brands
+
+<p>
+  Regarding the method to validate and identify the card brand that I chose to 
+  follow, I inform you that it is not very recommended, as it is based on 
+  validating the card's BIN (the first 6 digits of the card number) in regex and 
+  BINs may change over the years. Furthermore, working with regex on this type 
+  of variable data is not scalable or easy to maintain.
 </p>
 <p>
-  Antes que se perguntem, escolhi esse método por ser independente de 
-  outros serviços e, consequentemente, não apresentar indisponibilidade
-  futura, apesar das possíveis incompatibilidades que podem ocorrer
-  nas bandeiras disponíveis.
+  Before you ask, I chose this method because it is independent of other services 
+  and, consequently, will not present future unavailability, despite possible
+  incompatibilities that may occur in the available brands.
 </p>
 <p>
-  Mas, para quem se interessou pelos serviços, encontrei algumas APIs
-  que oferecem modo gratuito com limitações, na qual futuramente irei
-  desenvolver com alguma delas também:
+  But for those who are interested in the services, I found some APIs that offer 
+  free tier:
 </p>
 
-| API | Limitação |
-| ---- | -------- |
-| [BIN Codes](https://www.bincodes.com/api-bin-checker/) | Necessário se registrar e com limite 20 requisições por dia |
-| [BINLIST.NET](https://binlist.net/) | Não precisa se registrar, mas parou de ser atualizada (2023) e tem limite de 10 requesições por minuto |
-| [bincheck.io](https://bincheck.io/api) | Necessário se registrar e com limite de 1000 requisições por mês |
+| API                                                    | Limitation                                                                                             |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| [BIN Codes](https://www.bincodes.com/api-bin-checker/) | Registration required and limit of 20 requests per day                                                 |
+| [BINLIST.NET](https://binlist.net/)                    | No need to register, but it has stopped being updated (2023) and has a limit of 10 requests per minute |
+| [bincheck.io](https://bincheck.io/api)                 | Registration required and limit of 1000 requests per month                                             |
 
-## :woman_technologist: Acertos, dificuldades e melhorias
+## :woman_technologist: Achievements, difficulties and improvements
 
-- ☀️ Acertos: 
-  - organização da estrutura do projeto;
-  - trazer um bom feedback de erros para o usuário;
-  - limitar a margem de erro do usuário com o uso de máscaras;
-  - criatividade na solução para "simular estados" apenas com js puro;
+- ☀️ Achievements:
 
-- 🌧️ Dificuldades:
-  - controlar os estados de erro dos inputs;
-  - criar uma boa organização para a pasta dos scripts e css;
-  - aplicar o conceito de *Single Responsability* do SOLID;
-  - aplicar regex para fazer as máscaras dos inputs e encontrar 
-  conteúdo sobre como implementar com javascript puro de modo que 
-  ficasse visualmente agradável nos campos;
-  - encontrar boas informações para validar os campos relacionados ao
-  pagamento;
+  - Project structure organization;
+  - Providing valuable error feedback to the user;
+  - Limiting user error margins through the use of masks;
+  - Creative solution for "simulating states" using only pure JavaScript.
 
-- 🌈 O que pode melhorar:
-  - quando o usuário voltar um step, as informações preenchidas estarem
-  nos campos;
-  - quando o usuário deixar a página ou clicar para voltar, avisar que
-  os dados do step atual serão perdidos antes de prosseguir;
-  - deixar a validação mais exata usando alguma das APIs informadas na
-  seção de Validações em [Bandeiras do cartão](#bandeiras-do-cartão);
-  
-<h4 align="center">🚧 Readme em construção 👷🏻‍♀️</h4>
+- 🌧️ Difficulties:
+
+  - Control error states for the inputs;
+  - Establish a well-organized structure for the scripts and CSS folder;
+  - Apply the _Single Responsibility_ concept from SOLID;
+  - Find reliable information to validate payment-related fields;
+  - Implement regex to create masks for the inputs and search for information on
+    how to implement it using pure JavaScript in a visually pleasing way for the
+    fields.
+
+- 🌈 Improvements:
+
+  - When the user goes back a step, ensure that the filled information remains
+    in the fields;
+  - When the user leaves the page or clicks to go back, notify that the data
+    from the current step will be lost before proceeding;
+  - Enhance validation accuracy by utilizing one of the APIs mentioned in the
+    Validation section in the [Card brands](#card-brands).
 
 <hr>
 
 <p align="center">
-  Feito com 💜 por
+  Made with 💜 by
   <a align="center" href="https://www.linkedin.com/in/ana-beatriz-nunes/">
     Ana Beatriz Nunes
   </a>
