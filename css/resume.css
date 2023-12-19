@@ -1,10 +1,31 @@
 .content-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   gap: 1rem;
   user-select: none;
+  box-shadow: none;
   border: 2px dashed var(--gray-300);
+  border-bottom: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.resume-border {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  background-color: transparent;
+}
+
+.circle {
+  width: 60px;
+  height: 60px;
+  clip-path: circle(16px at bottom);
+  background-color: var(--purple-200);
 }
 
 .main__heading {
@@ -31,7 +52,7 @@
 
 .form__btn {
   align-self: flex-end;
-  margin-top: 1.5rem;
+  margin: 1rem 0;
 }
 
 @media screen and (min-width: 320px) {
