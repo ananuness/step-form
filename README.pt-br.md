@@ -1,3 +1,11 @@
+<table align="right">
+  <tr>
+    <td>
+      <a href="https://github.com/ananuness/step-form#-step-form" width="60px">en 🇺🇸</a>
+    </td>
+  </tr>
+</table>
+
 <h1 align="center">🛍 Step Form</h1>
 
 <p align="center">
