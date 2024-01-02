@@ -1,3 +1,11 @@
+<table align="right">
+  <tr>
+    <td>
+      <a href="https://github.com/ananuness/step-form/blob/main/README.pt-br.md" width="60px">pt-br 🇧🇷</a>
+    </td>
+  </tr>
+</table>
+  
 <h1 align="center">🛍 Step Form</h1>
 
 <p align="center">
@@ -7,7 +15,7 @@
 
 <p align="center">
  <a href="#books-subjects">Subjects</a> • 
- <a href="#desktop_computer-demo">Demo</a> •
+ <a href="#desktop_computer-demonstration">Demonstration</a> •
  <a href="#building_construction-structure">
   Structure
  </a> •
@@ -24,7 +32,7 @@
 - JavaScript (Arrays, Objects, DOM and Fetch API)
 - Regex (Capturing groups, replace method and its use, backreferences)
 
-## :desktop_computer: Demo
+## :desktop_computer: Demonstration
 
 <!-- video here
 <p>Or access it <a href="#">here</a>.</p> -->
