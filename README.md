@@ -34,8 +34,9 @@
 
 ## :desktop_computer: Demonstration
 
-<!-- video here
-<p>Or access it <a href="#">here</a>.</p> -->
+Try it [here](https://ananuness.github.io/step-form/).
+![step-form](https://github.com/ananuness/step-form/assets/51466624/0d6357e2-0095-4d44-936d-3618675a7b9d)
+
 
 ## :building_construction: Structure
 
