@@ -42,10 +42,10 @@ Foram abordados conceitos apresentados nos cursos:
 - [JavaScript: consumindo e tratando dados de uma API](https://cursos.alura.com.br/course/javascript-consumindo-tratando-dados-api)
 - [Expressões regulares: capturando textos de forma mágica](https://cursos.alura.com.br/course/expressoes-regulares)
 
-## :desktop_computer: Demonstração (em breve)
+## :desktop_computer: Demonstração
 
-<!-- <img src="#.gif" alt="gif (imagem que se movimenta) mostrando a aplicação do formulário">
-<p>Ou acesse o <a href="#">site</a>.</p> -->
+Acesse [aqui](https://ananuness.github.io/step-form/).
+![step-form](https://github.com/ananuness/step-form/assets/51466624/0d6357e2-0095-4d44-936d-3618675a7b9d)
 
 ## :building_construction: Estrutura
 
