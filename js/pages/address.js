@@ -62,7 +62,7 @@ const findZipCode = async (event) => {
 }
 
 const toggleReadOnly = () => {
-  if (!noHouseNumberCheckbox.checked) {
+  if (noHouseNumberCheckbox.checked) {
     houseNumberInput.value = 'S/N';
     houseNumberInput.ariaReadOnly = 'true';
     houseNumberInput.setAttribute('readonly', true);
@@ -97,7 +97,7 @@ houseNumberInput.addEventListener('change', event =>
   inputValidation.requiredFieldFilled(event, houseNumberError)
 );
 
-noHouseNumberCheckbox.addEventListener('focus', toggleReadOnly);
+noHouseNumberCheckbox.addEventListener('change', toggleReadOnly);
 
 previousBtn.addEventListener('click', event => {
   event.preventDefault();
